@@ -1,4 +1,3 @@
-import javax.swing.text.ParagraphView;
 import java.util.Arrays;
 
 public class Main {
@@ -51,6 +50,37 @@ public class Main {
         array[3] = num2;
         array[4] = num1;
         System.out.println(Arrays.toString(array));
+        System.out.println();
 
+//  Задача 8
+//  Дан массив чисел {−6, 2, 5, −8, 8, 10, 4, −7, 12, 1}. Необходимо найти два числа, сумма которых равна −2.
+//  Напечатать эти числа в консоль.
+        System.out.println("Задача 8");
+        int[] numbers = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
+        int requiredSum = -2;
+        Arrays.sort(numbers);
+        for (int i = 0, j = (numbers.length - 1); i != j; ) {
+            if (numbers[i] + numbers[j] > requiredSum) {
+                j--;
+            } else if (numbers[i] + numbers[j] < requiredSum) {
+                i++;
+            } else {
+                System.out.printf("Два числа, сумма которых равна %d: %d и %d\n", requiredSum, numbers[i], numbers[j]);
+                break;
+            }
+        }
+        System.out.println();
+
+//  Задача 9 (продолжение задачи 8)
+//  Дан массив чисел {−6, 2, 5, −8, 8, 10, 4, −7, 12, 1}. Найдите все пары чисел, сумма которых равна −2.
+//  Напечатать эти числа в консоль.
+        System.out.println("Задача 9");
+        for (int i = 0; i < (numbers.length - 1); i++) {
+            for (int j = i + 1; j < numbers.length; j++) {
+                if (numbers[i] + numbers[j] == requiredSum) {
+                    System.out.printf("Два числа, сумма которых равна %d: %d и %d\n", requiredSum, numbers[i], numbers[j]);
+                }
+            }
+        }
     }
 }
